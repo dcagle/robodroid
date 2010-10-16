@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="horizontal"
+  android:padding="10dip" 
+  android:gravity="center_vertical" >
+  
+    <dennis.robotics.MotorDevice
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:gravity="left" 
+            android:id="@+id/MotorDevice" />
+    
+    <!-- Just some debugging stuff -->
+    <LinearLayout android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" 
+                    android:paddingLeft="10dip" >
+        <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pitch: ?" 
+                    android:id="@+id/Pitch" />
+        <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Roll: ?" 
+                    android:id="@+id/Roll" />
+        <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Accuracy: ?" 
+                    android:id="@+id/Accuracy" />   
+    </LinearLayout>
+            
+    <dennis.robotics.SonarDevice
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal" 
+            android:id="@+id/SonarDevice" >
+        <view class="dennis.robotics.SonarDevice$SonarWidget" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:id="@+id/front_left"/>
+        <view class="dennis.robotics.SonarDevice$SonarWidget" 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/front_mid"/>
+        <view class="dennis.robotics.SonarDevice$SonarWidget" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:id="@+id/front_right" />
+    </dennis.robotics.SonarDevice>
+    
+</LinearLayout>

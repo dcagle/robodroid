@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:gravity="center_horizontal"
+  android:orientation="vertical">
+  <RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <!--  
+    <TextView 
+      android:text="Android Remote Control (V0.0)"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="15dip"
+      android:textStyle="bold"
+      android:textSize="18sp"
+      android:layout_alignParentLeft="true">
+    </TextView>
+    -->
+    
+    <!--
+    <ProgressBar
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:indeterminateOnly="true"
+      android:visibility="visible"
+      android:id="@+id/bt_progress"
+      android:layout_alignParentRight="true">
+    </ProgressBar>
+    -->
+    
+  </RelativeLayout>
+  
+  <dennis.robotics.BluetoothWidget
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:id="@+id/bt_module" />
+  
+  <!-- Moved to a separate widget
+  <RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <Button 
+      android:text="Enable Bluetooth"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/bt_toggle"
+      android:layout_alignParentLeft="true">
+    </Button>
+    <Button
+      android:text="Debug Mode"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/debugMode"
+      android:layout_centerHorizontal="true">
+    </Button>
+    <Button
+      android:text="Scan for Devices"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/bt_scan"
+      android:layout_alignParentRight="true">
+    </Button>
+  </RelativeLayout>
+  <TextView
+    android:text="Devices in Range:"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dip">
+  </TextView>
+  <ListView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/bt_devices">
+  </ListView>
+  -->
+  
+</LinearLayout>

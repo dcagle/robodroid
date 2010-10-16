@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Remote!</string>
+    <string name="app_name">Remote Control</string>
+    <string name="movement">Movement</string>
+    <string name="navigation">Navigation</string>
+    <string name="output">Output</string>
+    <item name="Tab" type="xml">ic_tab_artists</item>
+    <item name="Dpad" type="xml">motor_ctrl</item>
+<string name="forward">Forward</string>
+<string name="backwards">Backwards</string>
+<string name="left">Left</string>
+<string name="right">Right</string>
+</resources>

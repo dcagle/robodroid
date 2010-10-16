@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:orientation="vertical" >
+  <RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+    <TextView
+      android:text="Devices in Range:"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="15dip"
+      android:layout_alignParentLeft="true"
+      android:textStyle="bold">
+    </TextView>
+    <ImageButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:maxWidth="55dip" 
+      android:minWidth="55dip"
+      android:layout_alignParentRight="true" 
+      android:id="@+id/bt_action" />
+    <Button
+      android:text="Debug"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/debugMode"
+      android:layout_toLeftOf="@id/bt_action" />
+    <ProgressBar
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:indeterminateOnly="true"
+      android:visibility="invisible"
+      android:id="@+id/bt_progress"
+      android:layout_alignParentRight="true"
+      android:paddingRight="3dip" >
+    </ProgressBar>
+</RelativeLayout>
+  <view class="dennis.robotics.Transmitter$DeviceList"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/bt_devices" />
+</LinearLayout>

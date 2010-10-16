@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    >
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="5dp" 
+        >
+        <TabWidget 
+            android:id="@android:id/tabs" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+        />
+        <FrameLayout 
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="5dp" >
+            
+            <!-- Needed for TabHost.TabSpec.setContent(int id) to work -->
+            <include layout="@layout/init_screen"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/Init"
+            />
+            <include layout="@layout/motor_layout" 
+                        android:layout_width="fill_parent" 
+                        android:layout_height="fill_parent"
+                        android:id="@+id/Movement"
+            />
+            <include layout="@layout/nav_layout" 
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/Navigation"
+            />
+            <include layout="@layout/output_layout" 
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/Output"
+            />
+        </FrameLayout>
+    </LinearLayout>
+</TabHost>
