@@ -31,7 +31,7 @@ public class Transmitter
 {
 	private static BluetoothAdapter adapter;
 	//private static TransmitterThread transmitter;
-	private static ConnectionThread connection;
+	//private static ConnectionThread connection;
 	private static DeviceListener deviceListener;
 	//private static DeviceDialog dialog;
 	private static DeviceList devices;
@@ -107,6 +107,7 @@ public class Transmitter
 	 * 
 	 * Code from "http://developer.android.com/guide/topics/wireless/bluetooth.html"
 	 */
+	/*
 	private static class ConnectionThread extends Thread
 	{
 		private BluetoothSocket socket;
@@ -166,6 +167,7 @@ public class Transmitter
 			}
 		}
 	}
+	*/
 	
 	/**
 	 * Creates a list that aids the user in selecting a device to connect to.
@@ -255,6 +257,7 @@ public class Transmitter
 		public void onItemClick(AdapterView<?> av, View view, int pos, long id)
 		{
 			cancelDiscovery();
+			Log.v("DeviceList", "Attempting to connect to " + devices.get(pos).getName());
 			connectDevice(devices.get(pos));
 		}
 	}
@@ -453,6 +456,12 @@ public class Transmitter
 			filter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
 			context.registerReceiver(deviceListener, filter);
 			
+			if (adapter.isEnabled())
+			{
+				//If bluetooth was already enabled, call bluetoothEnabled() immediately
+				bluetoothEnabled();
+			}
+			
 			/*
 			if (!adapter.isEnabled())
 			{
@@ -469,7 +478,7 @@ public class Transmitter
 		else
 		{
 			//There is no bluetooth device on this phone, so can't do anything
-			Toast.makeText(context, "This phone doesn't support bluetooth!", Toast.LENGTH_LONG).show();
+			Toast.makeText(context, "Device doesn't support bluetooth!", Toast.LENGTH_LONG).show();
 		}
 	}
 	
@@ -480,8 +489,17 @@ public class Transmitter
 	
 	public static void bluetoothDisabled()
 	{
-		btActive = false;
-		cancelDiscovery();
+		if (btActive)
+		{
+			if (commThread != null)
+			{
+				if (commThread.isAlive())
+				{
+					commThread.cancel();
+				}
+			}
+			btActive = false;
+		}
 	}
 	
 	public static void startDiscovery()
@@ -515,15 +533,28 @@ public class Transmitter
 		{
 			if (commThread.isAlive())
 			{
-				Output.writeMessage("Attempting to send message");
+				Log.i("Transmitter", "Attempting to send message...");
 				commThread.write(message.getBytes());
+			}
+		}
+	}
+	
+	public static void sendByte(byte[] code)
+	{
+		if (commThread != null)
+		{
+			if (commThread.isAlive())
+			{
+				Log.i("Transmitter", "Attempting to send byte...");
+				commThread.write(code);
 			}
 		}
 	}
 	
 	private static void connectDevice(BluetoothDevice device)
 	{
-		Output.writeMessage("Selected device: " + device.getName() + " : " + device.getAddress());
+		Output.writeMessage("Connecting to " + device.getName() + "(" + device.getAddress() + ")");
+		Log.i("Transmitter", "Connecting to " + device.getName() + "(" + device.getAddress() + ")");
 		
 		Handler handler = new Handler() 
 		{
@@ -541,13 +572,13 @@ public class Transmitter
 		*/
 	}
 	
+	/*
 	private static void initializeTransmitter(BluetoothSocket socket)
 	{
-		/*
-		commThread = new Transmitter(socket);
+		transmitter = new Transmitter(socket);
 		transmitter.start();
-		*/
 	}
+	*/
 	
 	/**
 	 * Should be called whenever the activity is about to be destroyed.
@@ -556,6 +587,7 @@ public class Transmitter
 	 */
 	public static void onDestroy(Context context)
 	{
+		bluetoothDisabled(); //Clean up any existing connections
 		context.unregisterReceiver(deviceListener);
 	}
 	

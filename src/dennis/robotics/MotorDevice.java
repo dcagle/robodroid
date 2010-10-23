@@ -34,6 +34,26 @@ public class MotorDevice extends LinearLayout implements SensorEventListener
 			setBackgroundColor(Color.argb(0, 0, 0, 0));
 		}
 		
+		public void setSelected(boolean selected)
+		{
+			if (isSelected() != selected)
+			{
+				super.setSelected(selected);
+				//Transmitter.sendMessage("button:" + selected);
+				if (isSelected())
+				{
+					byte[] code = { 1 };
+					Transmitter.sendByte(code);
+				}
+				else
+				{
+					byte[] code = { 2 };
+					Transmitter.sendByte(code);
+				}
+				android.util.Log.v("MotorDevice", "Button state changed, sent to Transmitter");
+			}
+		}
+		
 		@Override
 		public boolean onTouchEvent(MotionEvent event)
 		{
@@ -116,7 +136,6 @@ public class MotorDevice extends LinearLayout implements SensorEventListener
 			buttons[RIGHT].setSelected(pitch < -20);
 			buttons[UP].setSelected(roll > 20);
 			buttons[DOWN].setSelected(roll < -20);
-			Transmitter.sendMessage("Pitch: " + pitch + ", Roll: " + roll + "\n");
 		}
 	}
 	

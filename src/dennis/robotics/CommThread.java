@@ -64,31 +64,24 @@ class CommThread extends Thread {
     	}
     	this.device = device;
     	this.handler = handler;
+    	
+    	Log.v("CommThread", "Initializing CommThread");
     }
 
     public void run() {
     	if (device == null)
     		return;
     	
-    	/*
-        Set<BluetoothDevice> devices = adapter.getBondedDevices();
-        BluetoothDevice device = null;
-        for (BluetoothDevice curDevice : devices) {
-        	if (curDevice.getName().matches(".*[Ff]ire[fF]ly.*")) {
-        		device = curDevice;
-        		break;
-        	}
-        }
-        if (device == null)
-        	device = adapter.getRemoteDevice("00:06:66:03:A7:52");
-        */
+    	Log.v("CommThread", "Starting CommThread");
 
         try {
         	socket = device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
         	socket.connect();
-        	Output.writeMessage("Successfully connected to " + device.getName());
+        	Log.v("CommThread", "Successfully connected to " + device.getName());
         } catch (IOException e) {
         	socket = null;
+        	Log.e("CommThread", "Could not connect to " + device.getName() + ", aborting");
+        	Log.e("CommThread", "Bluetooth Error: " + e.getMessage());
         }
         if (socket == null) return;
 
@@ -102,6 +95,8 @@ class CommThread extends Thread {
 
         istream = tmpIn;
         ostream = tmpOut;
+        
+        Log.v("CommThread", "tmpIn: " + istream + ", tmpOut: " + ostream);
 
         StringBuffer sb = new StringBuffer();
         byte[] buffer = new byte[1024];  // buffer store for the stream
@@ -135,12 +130,19 @@ class CommThread extends Thread {
 
     /* Call this from the main Activity to send data to the remote device */
     public void write(byte[] bytes) {
-        try {
-            ostream.write(bytes);
-            Output.writeMessage("Wrote a message");
-        } catch (IOException e) {
-                Log.e("CommThread.write", "exception during write", e);
-        }
+    	if (ostream != null)
+    	{
+	        try {
+	        	Log.v("CommThread", ostream.toString() + " -> " + bytes.toString());
+	            ostream.write(bytes);
+	        } catch (IOException e) {
+	                Log.e("CommThread.write", "exception during write", e);
+	        }
+    	}
+    	else
+    	{
+    		Log.e("CommThread.write", "Output Stream not available");
+    	}
     }
 
     /* Call this from the main Activity to shutdown the connection */
