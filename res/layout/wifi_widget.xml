@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+	<RelativeLayout
+	   android:layout_width="fill_parent"
+	   android:layout_height="wrap_content" 
+	   android:orientation="horizontal"
+	   android:gravity="center_vertical"
+	   android:padding="5dip">
+	   <Button
+	       android:id="@+id/wifi_connect"
+	       android:text="Connect"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:layout_alignParentRight="true" />
+	   <EditText
+	       android:id="@+id/wifi_portNum"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:minWidth="100dip"
+	       android:layout_toLeftOf="@id/wifi_connect" 
+	       android:hint="Number" 
+	       android:selectAllOnFocus="true" 
+	       android:inputType="number" />
+	   <EditText
+	       android:id="@+id/wifi_portName"
+	       android:hint="Name"
+	       android:layout_height="wrap_content"
+	       android:layout_width="fill_parent"
+	       android:selectAllOnFocus="true" 
+	       android:layout_alignParentLeft="true" 
+	       android:layout_toLeftOf="@id/wifi_portNum" />
+	   <TextView
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:id="@+id/wifi_connStatus"
+	       android:text="Connected to ??? on port ???" 
+	       android:textColor="#FFFFFF"
+	       android:textStyle="bold" 
+	       android:layout_alignBaseline="@id/wifi_connect" 
+	       android:visibility="gone" />
+	   </RelativeLayout>
+</LinearLayout>

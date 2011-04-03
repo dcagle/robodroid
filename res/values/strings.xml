@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello World, Remote!</string>
-    <string name="app_name">Remote Control</string>
+    <string name="app_name">Remote</string>
     <string name="movement">Movement</string>
     <string name="navigation">Navigation</string>
     <string name="output">Output</string>

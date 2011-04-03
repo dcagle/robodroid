@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical" >
+  
+  <RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:id="@+id/gps_edit" >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:layout_alignParentLeft="true"
+        android:gravity="center_vertical" >
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next Waypoint: "
+            android:textStyle="bold"
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="--- / " 
+            android:id="@+id/next_lat"
+            android:textStyle="bold" 
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="---  " 
+            android:id="@+id/next_long" 
+            android:textStyle="bold"
+        />
+        <view class="robotics.android.GPSWidget$NavigationArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gps_nav_arrow"
+        />
+        <!--  
+        <ImageView 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:id="@+id/gps_nav_arrow"
+            android:src="@drawable/nav_arrow"
+            android:gravity="center_vertical"
+        /-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+        />
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Waypoint" 
+        android:layout_alignParentRight="true" 
+        android:id="@+id/waypoint_set" 
+    />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Map"
+        android:id="@+id/view_map"
+        android:layout_toLeftOf="@id/waypoint_set"
+    />
+  </RelativeLayout>
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:text="Latitude:" 
+        android:minWidth="100dip" />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:text="---" 
+        android:editable="false" 
+        android:id="@+id/latitude" />
+  </LinearLayout>
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Longitude:" 
+        android:minWidth="100dip" />  
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="---" 
+        android:editable="false"
+        android:id="@+id/longitude" />
+  </LinearLayout>
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:gravity="center_horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="current bearing: ---" 
+        android:id="@+id/gps_cur_bearing"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bearing to target: ---"
+        android:id="@+id/gps_tar_bearing"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="arrow rotation: ---"
+        android:id="@+id/gps_arrow_rotation"
+    />
+  </LinearLayout>
+</LinearLayout>

@@ -5,13 +5,17 @@
   android:layout_height="fill_parent"
   android:padding="10dip" 
   android:orientation="vertical" >
-    <EditText android:layout_width="fill_parent"
-                android:layout_height="fill_parent" 
-                android:id="@+id/txtOutput" 
-                android:editable="false" 
-                android:scrollHorizontally="true"
-                android:scrollbarAlwaysDrawHorizontalTrack="true"
-                android:scrollbarAlwaysDrawVerticalTrack="true"
-                android:gravity="top" 
-                android:inputType="textMultiLine" />
+  <TextView android:text="Last message transmitted: " 
+            android:id="@+id/last_transmit" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" />
+  <EditText android:layout_width="fill_parent"
+            android:layout_height="fill_parent" 
+            android:id="@+id/txtOutput" 
+            android:editable="false" 
+            android:scrollHorizontally="true"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:gravity="top" 
+            android:inputType="textMultiLine" />
 </LinearLayout>

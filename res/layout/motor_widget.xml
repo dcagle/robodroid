@@ -4,46 +4,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
     
-    <view class="dennis.robotics.MotorDevice" />
-    
-    <!--
-    <ImageButton android:src="@drawable/motor_ctrl_up"
-                    android:layout_width="wrap_content" 
-                    android:layout_height="wrap_content"
-                    android:background="#0000" 
-                    android:id="@+id/Up" />
-        <TableRow android:layout_width="wrap_content" 
-                    android:layout_height="wrap_content">
-            <ImageButton android:src="@drawable/motor_ctrl_left"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="#0000" 
-                            android:id="@+id/Left" />
-            <ImageButton android:src="@drawable/motor_ctrl_center"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="#0000" />
-            <ImageButton android:src="@drawable/motor_ctrl_right"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="#0000" 
-                            android:id="@+id/Right" />
-        </TableRow>
-        <ImageButton android:src="@drawable/motor_ctrl_down"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#0000" 
-                        android:id="@+id/Down" />
-        <TableRow android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-            <TextView android:text="Pitch:?" 
-                        android:id="@+id/PitchStatus" />
-            <TextView android:text="Roll:?" 
-                        android:id="@+id/RollStatus" />
-            <TextView android:text="(?)"
-                        android:id="@+id/AccuracyStatus" 
-                        android:gravity="center" />
-        </TableRow>
-    -->
+    <view class="robotics.android.MotorDevice" />
   
 </TableLayout>

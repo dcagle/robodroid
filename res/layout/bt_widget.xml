@@ -8,15 +8,22 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
+    <ProgressBar 
+      android:layout_height="wrap_content" 
+      android:layout_width="wrap_content" 
+      android:id="@+id/bt_progress" 
+      android:visibility="gone" 
+      android:layout_alignParentLeft="true" />
     <TextView
-      android:text="Devices in Range:"
+      android:text="Bluetooth not enabled"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:padding="15dip"
-      android:layout_alignParentLeft="true"
-      android:textStyle="bold">
-    </TextView>
+      android:layout_toRightOf="@id/bt_progress"
+      android:textStyle="bold" 
+      android:id="@+id/bt_info" />
     <ImageButton
+      android:src="@drawable/bluetooth_icon"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:maxWidth="55dip" 
@@ -29,6 +36,7 @@
       android:layout_height="wrap_content"
       android:id="@+id/debugMode"
       android:layout_toLeftOf="@id/bt_action" />
+    <!-- 
     <ProgressBar
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -38,8 +46,10 @@
       android:layout_alignParentRight="true"
       android:paddingRight="3dip" >
     </ProgressBar>
+    -->
+  
 </RelativeLayout>
-  <view class="dennis.robotics.Transmitter$DeviceList"
+  <view class="robotics.android.lib.Transmitter$DeviceList"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id="@+id/bt_devices" />
